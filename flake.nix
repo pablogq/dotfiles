@@ -18,6 +18,9 @@
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.pablogq = import ./home;
+        nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+          "ngrok"
+        ];
       };
     in
     {

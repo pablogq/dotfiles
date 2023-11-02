@@ -17,6 +17,7 @@
     fnm
     fzf
     gh
+    ngrok
     ripgrep
     rnix-lsp
     (nerdfonts.override { fonts = [ "VictorMono" "FiraCode" ]; })
