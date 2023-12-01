@@ -170,6 +170,8 @@
     name = "VictorMono Nerd Font Mono";
   };
 
+  programs.vim.enable = true;
+
   programs.git.enable = true;
   programs.git.userName = "Pablo Guerrero";
   programs.git.userEmail = "pablogq@outlook.com";

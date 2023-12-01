@@ -30,11 +30,14 @@
 
   environment.shells = [ pkgs.fish ];
   environment.systemPackages = [ ];
+  environment.variables = {
+    EDITOR = "vim";
+  };
 
   programs.fish.enable = true;
   programs.nix-index.enable = true;
 
-  system.defaults.dock.autohide = true;
+  system.defaults.dock.autohide = false;
   system.defaults.dock.orientation = "left";
 
   system.defaults.finder = {
