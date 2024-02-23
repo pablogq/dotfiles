@@ -18,11 +18,10 @@
     fzf
     gh
     ngrok
+    rover
     ripgrep
     rnix-lsp
     (nerdfonts.override { fonts = [ "VictorMono" "FiraCode" ]; })
-    nodePackages.pnpm
-    yarn
   ];
 
   programs.home-manager.enable = true;
@@ -31,6 +30,8 @@
   programs.fish.functions.fish_greeting = "";
   programs.fish.functions.upgrade = ''
     pushd ~/.nix
+    nix flake update
+    brew update
     darwin-rebuild switch --flake .#$argv[1]
     popd
   '';
@@ -73,6 +74,9 @@
     set -g fish_color_selection 'white'  '--bold'  '--background=brblack'
     set -g fish_color_user brgreen
     set -g fish_color_valid_path --underline
+
+    # homebrew
+    fish_add_path /opt/homebrew/bin
 
     # fnm
     set -gx FNM_DIR $HOME/.fnm

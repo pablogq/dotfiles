@@ -14,14 +14,17 @@
     cleanup = "zap"; # Uninstall all programs not declared
     upgrade = true;
   };
-  homebrew.taps = [
-    "homebrew/cask" # Required for casks
-  ];
   homebrew.casks = [
     "1password"
     "discord"
     "google-chrome"
     "slack"
     "visual-studio-code"
+  ];
+  # installing pnpm and yarn from nixpgks have an issue with hardcoded node versions
+  # https://github.com/NixOS/nixpkgs/issues/145634
+  homebrew.brews = [
+    "pnpm"
+    "yarn"
   ];
 }
