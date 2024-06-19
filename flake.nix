@@ -9,7 +9,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager }:
+  outputs = { self, nixpkgs, nix-darwin, home-manager }:
     let
       inherit (nixpkgs.lib) makeOverridable;
       x86_64-darwin = "x86_64-darwin";

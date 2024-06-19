@@ -16,10 +16,8 @@
   # System Configuration #
   ########################
 
-  fonts.fontDir.enable = true;
-  # fonts declared with home-manager
-
-  networking.dns = [ "1.1.1.1" "8.8.8.8" ];
+  # networking.dns = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4"];
+  networking.dns = [ ];
   networking.knownNetworkServices = [ "Wi-Fi" ];
 
   # Auto upgrade nix package and the daemon service.

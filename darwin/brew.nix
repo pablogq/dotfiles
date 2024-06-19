@@ -20,11 +20,14 @@
     "google-chrome"
     "slack"
     "visual-studio-code"
+    "zoom"
   ];
   # installing pnpm and yarn from nixpgks have an issue with hardcoded node versions
   # https://github.com/NixOS/nixpkgs/issues/145634
   homebrew.brews = [
     "pnpm"
     "yarn"
+    "libpng"
+    "pkg-config"
   ];
 }

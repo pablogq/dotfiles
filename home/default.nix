@@ -1,4 +1,4 @@
-{ config, osConfig, lib, pkgs, ... }: {
+{ osConfig, lib, pkgs, ... }: {
 
   fonts.fontconfig.enable = true;
 
@@ -17,10 +17,11 @@
     fnm
     fzf
     gh
+    httpstat
     ngrok
+    nil
     rover
     ripgrep
-    rnix-lsp
     (nerdfonts.override { fonts = [ "VictorMono" "FiraCode" ]; })
   ];
 
@@ -81,7 +82,7 @@
     # fnm
     set -gx FNM_DIR $HOME/.fnm
     fish_add_path $HOME/.fnm
-    fnm env | source
+    fnm env --use-on-cd | source
   '';
 
   programs.starship.enable = true;
@@ -89,8 +90,13 @@
   programs.starship.enableBashIntegration = false;
   programs.starship.enableZshIntegration = false;
   programs.starship.settings = {
+    command_timeout = 1000;
     character.success_symbol = "[λ](bold green)";
     character.error_symbol = "[λ](bold red)";
+    hostname = {
+      ssh_only = true;
+      format = "on [$hostname](bold red) ";
+    };
   };
 
   programs.kitty.enable = true;
