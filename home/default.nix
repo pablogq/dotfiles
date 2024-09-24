@@ -18,7 +18,6 @@
     fzf
     gh
     httpstat
-    ngrok
     nil
     rover
     ripgrep

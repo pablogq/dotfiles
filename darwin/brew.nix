@@ -18,6 +18,7 @@
     "1password"
     "discord"
     "google-chrome"
+    "mongodb-compass"
     "slack"
     "visual-studio-code"
     "zoom"
