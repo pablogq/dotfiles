@@ -19,6 +19,7 @@
     "discord"
     "google-chrome"
     "mongodb-compass"
+    "redisinsight"
     "slack"
     "visual-studio-code"
     "zoom"
