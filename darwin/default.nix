@@ -27,7 +27,7 @@
   users.users.pablogq.shell = pkgs.fish;
 
   environment.shells = [ pkgs.fish ];
-  environment.systemPackages = [ ];
+  environment.systemPackages = [ pkgs.nixfmt-rfc-style ];
   environment.variables = {
     EDITOR = "vim";
   };

@@ -1,7 +1,12 @@
-{ osConfig, lib, pkgs, ... }: {
+{
+  osConfig,
+  lib,
+  pkgs,
+  ...
+}:
+{
 
   fonts.fontconfig.enable = true;
-
 
   home.username = "pablogq";
   home.homeDirectory = "/Users/pablogq";
@@ -10,6 +15,7 @@
   home.packages = with pkgs; [
     awscli2
     bat
+    bun
     curl
     doppler
     eza
@@ -17,11 +23,14 @@
     fnm
     fzf
     gh
+    go
     httpstat
     nil
     rover
     ripgrep
-    (nerdfonts.override { fonts = [ "VictorMono" "FiraCode" ]; })
+    sqlite
+    nerd-fonts.victor-mono
+    nerd-fonts.fira-code
   ];
 
   programs.home-manager.enable = true;
@@ -48,7 +57,9 @@
       makeBinPathList = map (path: path + "/bin");
     in
     ''
-      fish_add_path --move --prepend --path ${lib.concatMapStringsSep " " dquote (makeBinPathList osConfig.environment.profiles)}
+      fish_add_path --move --prepend --path ${
+        lib.concatMapStringsSep " " dquote (makeBinPathList osConfig.environment.profiles)
+      }
       set fish_user_paths $fish_user_paths
     '';
 
@@ -82,6 +93,10 @@
     set -gx FNM_DIR $HOME/.fnm
     fish_add_path $HOME/.fnm
     fnm env --use-on-cd | source
+
+    # go
+    set -gx GOPATH $HOME/.go
+    fish_add_path $HOME/.go/bin
   '';
 
   programs.starship.enable = true;
@@ -175,7 +190,7 @@
     tab_bar_background = "#101014";
   };
   programs.kitty.font = {
-    package = (pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; });
+    package = pkgs.nerd-fonts.victor-mono;
     name = "VictorMono Nerd Font Mono";
   };
 
