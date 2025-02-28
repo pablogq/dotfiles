@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
   imports = [ ./brew.nix ];
 
@@ -7,6 +8,7 @@
   #####################
 
   nix.package = pkgs.nix;
+  nix.enable = true;
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 30d";
   # Necessary for using flakes on this system.
@@ -19,9 +21,6 @@
   # networking.dns = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4"];
   networking.dns = [ ];
   networking.knownNetworkServices = [ "Wi-Fi" ];
-
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
 
   users.users.pablogq.home = "/Users/pablogq";
   users.users.pablogq.shell = pkgs.fish;
