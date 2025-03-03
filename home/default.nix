@@ -113,85 +113,27 @@
     };
   };
 
-  programs.kitty.enable = true;
+  # ghostty is marked as broken for darwin systems and it is installed with brew
+  # using null for package to handle the config with home-manager.
+  # https://github.com/nix-community/home-manager/blob/11e6d20803cb660094a7657b8f1653d96d61b527/modules/programs/ghostty.nix#L34
+  programs.ghostty.package = null;
+  programs.ghostty.enable = true;
+  programs.ghostty.enableFishIntegration = true;
+  programs.ghostty.enableBashIntegration = false;
+  programs.ghostty.enableZshIntegration = false;
 
-  programs.kitty.shellIntegration.enableFishIntegration = true;
-  programs.kitty.shellIntegration.enableBashIntegration = false;
-  programs.kitty.shellIntegration.enableZshIntegration = false;
-  programs.kitty.settings = {
-    font_size = 14;
-    term = "xterm-kitty";
-    enable_audio_bell = false;
-    strip_trailing_spaces = "smart";
-    window_padding_width = "0 10 4";
-    macos_option_as_alt = "yes";
-    macos_titlebar_color = "background";
-
-    foreground = "#a6accd";
-    background = "#1b1e28";
-    url_color = "#5de4c7";
-
-    # Black
-    color0 = "#1b1e28";
-    color8 = "#a6accd";
-
-    # Red
-    color1 = "#d0679d";
-    color9 = "#d0679d";
-
-    # Green
-    color2 = "#5de4c7";
-    color10 = "#5de4c7";
-
-    # Yellow
-    color3 = "#fffac2";
-    color11 = "#fffac2";
-
-    # Blue
-    color4 = "#89ddff";
-    color12 = "#add7ff";
-
-    # Magenta
-    color5 = "#fcc5e9";
-    color13 = "#fae4fc";
-
-    # Cyan
-    color6 = "#add7ff";
-    color14 = "#89ddff";
-
-    # White
-    color7 = "#ffffff";
-    color15 = "#ffffff";
-
-    # Cursor
-    cursor = "#ffffff";
-    cursor_shape = "underline";
-    cursor_text_color = "#1b1e28";
-
-    # Selection highlight
-    selection_foreground = "none";
-    selection_background = "#28344a";
-
-    # Window borders
-    active_border_color = "#3d59a1";
-    inactive_border_color = "#101014";
-    bell_border_color = "#fffac2";
-
-    # Tab bar
-    tab_bar_edge = "top";
-    tab_bar_style = "fade";
-    tab_fade = 1;
-    active_tab_foreground = "#3d59a1";
-    active_tab_background = "#16161e";
-    active_tab_font_style = "bold";
-    inactive_tab_foreground = "#787c99";
-    inactive_tab_background = "#16161e";
-    inactive_tab_font_style = "bold";
-    tab_bar_background = "#101014";
-  };
-  programs.kitty.font = {
-    package = pkgs.nerd-fonts.victor-mono;
-    name = "VictorMono Nerd Font Mono";
+  programs.ghostty.settings = {
+    font-size = 14;
+    font-family = "VictorMono Nerd Font Mono";
+    term = "xterm-256color";
+    theme = "catppuccin-frappe";
+    window-padding-x = 10;
+    window-padding-y = "2";
+    macos-titlebar-style = "tabs";
+    background-opacity = 0.9;
+    background-blur = true;
+    confirm-close-surface = false;
+    copy-on-select = "clipboard";
   };
 
   programs.vim.enable = true;
@@ -214,5 +156,10 @@
     protocol.keybase.allow = "always";
     credential.helper = "osxkeychain";
     pull.rebase = "true";
+  };
+
+  # Don't show the "Last login" message for every new terminal.
+  home.file.".hushlogin" = {
+    text = "";
   };
 }

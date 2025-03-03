@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   system.activationScripts.preUserActivation.text = ''
     if ! xcode-select --version 2>/dev/null; then
       $DRY_RUN_CMD xcode-select --install
@@ -17,6 +18,7 @@
   homebrew.casks = [
     "1password"
     "discord"
+    "ghostty"
     "google-chrome"
     "mongodb-compass"
     "redis-insight"
