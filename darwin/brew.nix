@@ -21,6 +21,7 @@
     "ghostty"
     "google-chrome"
     "mongodb-compass"
+    "raycast"
     "redis-insight"
     "slack"
     "visual-studio-code"

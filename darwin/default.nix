@@ -49,6 +49,26 @@
     AppleMetricUnits = 1;
   };
 
+  system.defaults.CustomUserPreferences = {
+    "com.apple.symbolichotkeys" = {
+      AppleSymbolicHotKeys = {
+        # Disable 'Cmd + Space' for Spotlight Search, it will be handled by Raycast
+        "64" = {
+          enabled = false;
+        };
+        # Disable 'Cmd + Alt + Space' for Finder search window
+        "65" = {
+          enabled = false;
+        };
+      };
+    };
+  };
+
+  # Following line should allow us to avoid a logout/login cycle
+  system.activationScripts.postUserActivation.text = ''
+    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+  '';
+
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
