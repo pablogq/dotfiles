@@ -29,8 +29,8 @@
     rover
     ripgrep
     sqlite
-    nerd-fonts.victor-mono
     nerd-fonts.fira-code
+    nerd-fonts.victor-mono
   ];
 
   programs.home-manager.enable = true;
@@ -103,15 +103,20 @@
   programs.starship.enableFishIntegration = true;
   programs.starship.enableBashIntegration = false;
   programs.starship.enableZshIntegration = false;
-  programs.starship.settings = {
-    command_timeout = 1000;
-    character.success_symbol = "[λ](bold green)";
-    character.error_symbol = "[λ](bold red)";
-    hostname = {
-      ssh_only = true;
-      format = "on [$hostname](bold red) ";
-    };
-  };
+  programs.starship.settings = lib.mkMerge [
+    {
+      command_timeout = 1000;
+      character.success_symbol = "[λ](bold green)";
+      character.error_symbol = "[λ](bold red)";
+      hostname = {
+        ssh_only = true;
+        format = "on [$hostname](bold red) ";
+      };
+    }
+    (builtins.fromTOML (
+      builtins.readFile "${pkgs.starship}/share/starship/presets/nerd-font-symbols.toml"
+    ))
+  ];
 
   # ghostty is marked as broken for darwin systems and it is installed with brew
   # using null for package to handle the config with home-manager.
