@@ -64,6 +64,9 @@
     };
   };
 
+  # Add ability to used TouchID for sudo authentication
+  security.pam.services.sudo_local.touchIdAuth = true;
+
   # Following line should allow us to avoid a logout/login cycle
   system.activationScripts.postUserActivation.text = ''
     /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
