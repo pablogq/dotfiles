@@ -163,6 +163,11 @@
     pull.rebase = "true";
   };
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   # Don't show the "Last login" message for every new terminal.
   home.file.".hushlogin" = {
     text = "";
