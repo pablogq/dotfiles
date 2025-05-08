@@ -44,6 +44,12 @@
     darwin-rebuild switch --flake .#$argv[1]
     popd
   '';
+  programs.fish.functions.garbage = ''
+    echo "Cleaning Nix..."
+    nix-collect-garbage -d
+    echo "Cleaning Docker..."
+    docker image prune --all --force
+  '';
 
   # Fix an issue with $PATH and fish:
   # https://github.com/LnL7/nix-darwin/issues/122#issuecomment-1659465635
