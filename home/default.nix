@@ -157,6 +157,10 @@
       condition = "gitdir:~/code/github/slidebean/";
       path = "~/code/github/slidebean/.gitconfig";
     }
+    {
+      condition = "gitdir:~/code/github/betanysports/";
+      path = "~/code/github/betanysports/.gitconfig";
+    }
   ];
   programs.git.extraConfig = {
     core = {
