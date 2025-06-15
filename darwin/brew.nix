@@ -1,19 +1,19 @@
 { ... }:
 {
-  system.activationScripts.preUserActivation.text = ''
+  system.activationScripts.preActivation.text = ''
     if ! xcode-select --version 2>/dev/null; then
-      $DRY_RUN_CMD xcode-select --install
+      $DRY_RUN_CMD sudo -u pablogq xcode-select --install
     fi
     if ! /opt/homebrew/bin/brew --version 2>/dev/null; then
-      $DRY_RUN_CMD /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      $DRY_RUN_CMD sudo -u pablogq /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
   '';
 
   homebrew.enable = true;
   homebrew.onActivation = {
     autoUpdate = false; # Don't update during rebuild
+    upgrade = true; # Upgrade outdated casks, formulae, and App Store apps
     cleanup = "zap"; # Uninstall all programs not declared
-    upgrade = true;
   };
   homebrew.casks = [
     "1password"

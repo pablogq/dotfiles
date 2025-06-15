@@ -11,7 +11,7 @@
   home.username = "pablogq";
   home.homeDirectory = "/Users/pablogq";
 
-  home.stateVersion = "23.05";
+  home.stateVersion = "25.05";
   home.packages = with pkgs; [
     awscli2
     bat
@@ -41,7 +41,7 @@
     pushd ~/.nix
     nix flake update
     brew update
-    darwin-rebuild switch --flake .#$argv[1]
+    sudo darwin-rebuild switch --flake .#$argv[1]
     popd
   '';
   programs.fish.functions.garbage = ''

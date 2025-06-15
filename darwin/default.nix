@@ -34,6 +34,7 @@
   programs.fish.enable = true;
   programs.nix-index.enable = true;
 
+  system.primaryUser = "pablogq";
   system.defaults.dock.autohide = false;
   system.defaults.dock.orientation = "left";
 
@@ -68,8 +69,8 @@
   security.pam.services.sudo_local.touchIdAuth = true;
 
   # Following line should allow us to avoid a logout/login cycle
-  system.activationScripts.postUserActivation.text = ''
-    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+  system.activationScripts.postActivation.text = ''
+    sudo -u pablogq /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
   '';
 
   # Used for backwards compatibility, please read the changelog before changing.
