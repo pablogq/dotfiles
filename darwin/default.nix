@@ -45,6 +45,7 @@
   system.defaults.NSGlobalDomain = {
     AppleShowAllExtensions = true;
     NSDocumentSaveNewDocumentsToCloud = false;
+    NSAutomaticPeriodSubstitutionEnabled = false;
     AppleMeasurementUnits = "Centimeters";
     AppleTemperatureUnit = "Celsius";
     AppleMetricUnits = 1;
@@ -53,6 +54,14 @@
   system.defaults.CustomUserPreferences = {
     "com.apple.symbolichotkeys" = {
       AppleSymbolicHotKeys = {
+        # Disable "Select the previous input source" shortcut
+        "60" = {
+          enable = false;
+        };
+        # Disable "Select next source in Input menu" shortcut
+        "61" = {
+          enable = false;
+        };
         # Disable 'Cmd + Space' for Spotlight Search, it will be handled by Raycast
         "64" = {
           enabled = false;
