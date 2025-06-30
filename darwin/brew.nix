@@ -18,7 +18,7 @@
   homebrew.casks = [
     "1password"
     "discord"
-    "docker"
+    "docker-desktop"
     "ghostty"
     "google-chrome"
     "mongodb-compass"
