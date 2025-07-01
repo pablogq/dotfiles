@@ -147,6 +147,61 @@
     copy-on-select = "clipboard";
   };
 
+  programs.tmux.enable = true;
+  programs.tmux.shortcut = "a";
+  programs.tmux.baseIndex = 1;
+  programs.tmux.escapeTime = 0;
+  programs.tmux.keyMode = "vi";
+  programs.tmux.shell = "${pkgs.fish}/bin/fish";
+  programs.tmux.terminal = "screen-256color";
+  programs.tmux.mouse = true;
+  programs.tmux.focusEvents = true;
+  programs.tmux.plugins = with pkgs.tmuxPlugins; [
+    resurrect
+    continuum
+    {
+      plugin = catppuccin;
+      extraConfig = ''
+        set -g @catppuccin_flavor 'frappe'
+        set -g @catppuccin_status_background 'none'
+        set -g @catppuccin_window_status_style 'none'
+        set -g @catppuccin_pane_status_enabled 'off'
+        set -g @catppuccin_pane_border_status 'off'
+      '';
+    }
+  ];
+  programs.tmux.extraConfig = ''
+    set -g @continuum-restore 'on'
+
+    set -g status-position top
+    set -g status-justify "absolute-centre"
+    set -g status-interval 5
+
+    set -g status-left-length 100
+    set -g status-left ""
+    set -ga status-left "#{?client_prefix,#{#[fg=#{@thm_fg},bold]  #S },#{#[fg=#{@thm_green}]  #S }}"
+    set -ga status-left "#[fg=#{@thm_overlay_0},none]│"
+    set -ga status-left "#[fg=#{@thm_maroon}]  #{pane_current_command} "
+    set -ga status-left "#[fg=#{@thm_overlay_0},none]│"
+    set -ga status-left "#[fg=#{@thm_blue}]  #{=/-32/...:#{s|$USER|~|:#{b:pane_current_path}}} "
+    set -ga status-left "#[fg=#{@thm_overlay_0},none]#{?window_zoomed_flag,│,}"
+    set -ga status-left "#[fg=#{@thm_yellow}]#{?window_zoomed_flag,  zoom ,}"
+
+    set -g status-right-length 100
+    set -g status-right ""
+    set -ga status-right "#[fg=#{@thm_blue}] 󰭦 %m-%d 󰅐 %H:%M "
+
+    set -g window-status-format " #I#{?#{!=:#{window_name},Window},: #W,} "
+    set -g window-status-style "fg=#{@thm_overlay_0}"
+    set -g window-status-last-style "fg=#{@thm_rosewater}"
+    set -g window-status-activity-style "fg=#{@thm_red}"
+    set -g window-status-bell-style "fg=#{@thm_red},bold"
+    set -gF window-status-separator "#[fg=#{@thm_overlay_0}]│"
+
+    set -g window-status-current-format " #I#{?#{!=:#{window_name},Window},: #W,} "
+    set -g window-status-current-style "fg=#{@thm_peach},bold"
+  '';
+
   programs.vim.enable = true;
 
   programs.git.enable = true;
