@@ -18,8 +18,12 @@
   # System Configuration #
   ########################
 
-  # networking.dns = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4"];
-  networking.dns = [ ];
+  networking.dns = [
+    "1.1.1.1"
+    "1.0.0.1"
+    "8.8.8.8"
+    "8.8.4.4"
+  ];
   networking.knownNetworkServices = [ "Wi-Fi" ];
 
   users.users.pablogq.home = "/Users/pablogq";
