@@ -153,7 +153,7 @@
   programs.tmux.escapeTime = 0;
   programs.tmux.keyMode = "vi";
   programs.tmux.shell = "${pkgs.fish}/bin/fish";
-  programs.tmux.terminal = "screen-256color";
+  programs.tmux.terminal = "xterm-256color";
   programs.tmux.mouse = true;
   programs.tmux.focusEvents = true;
   programs.tmux.plugins = with pkgs.tmuxPlugins; [
@@ -171,6 +171,8 @@
     }
   ];
   programs.tmux.extraConfig = ''
+    set -ga terminal-overrides ",xterm-256color:Tc"
+
     set -g @continuum-restore 'on'
 
     set -g status-position top
