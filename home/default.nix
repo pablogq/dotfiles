@@ -157,8 +157,14 @@
   programs.tmux.mouse = true;
   programs.tmux.focusEvents = true;
   programs.tmux.plugins = with pkgs.tmuxPlugins; [
+    sensible
     resurrect
-    continuum
+    {
+      plugin = continuum;
+      extraConfig = ''
+        set -g @continuum-restore 'on'
+      '';
+    }
     {
       plugin = catppuccin;
       extraConfig = ''
@@ -172,8 +178,6 @@
   ];
   programs.tmux.extraConfig = ''
     set -ga terminal-overrides ",xterm-256color:Tc"
-
-    set -g @continuum-restore 'on'
 
     set -g status-position top
     set -g status-justify "absolute-centre"
@@ -207,19 +211,23 @@
   programs.vim.enable = true;
 
   programs.git.enable = true;
-  programs.git.userName = "Pablo Guerrero";
-  programs.git.userEmail = "pablogq@outlook.com";
+  programs.git.settings.user.name = "Pablo Guerrero";
+  programs.git.settings.user.email = "pablogq@outlook.com";
   programs.git.includes = [
     {
       condition = "gitdir:~/code/github/slidebean/";
       path = "~/code/github/slidebean/.gitconfig";
     }
     {
+      condition = "gitdir:~/code/bitbucket/betonline/";
+      path = "~/code/bitbucket/betonline/.gitconfig";
+    }
+    {
       condition = "gitdir:~/code/github/betanysports/";
       path = "~/code/github/betanysports/.gitconfig";
     }
   ];
-  programs.git.extraConfig = {
+  programs.git.settings = {
     core = {
       whitespace = "trailing-space,space-before-tab";
     };

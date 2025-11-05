@@ -17,10 +17,13 @@
   };
   homebrew.casks = [
     "1password"
+    "citrix-workspace"
+    "cloudflare-warp"
     "discord"
     "docker-desktop"
     "ghostty"
     "google-chrome"
+    "mattermost"
     "mongodb-compass"
     "raycast"
     "redis-insight"
