@@ -219,8 +219,8 @@
       path = "~/code/github/slidebean/.gitconfig";
     }
     {
-      condition = "gitdir:~/code/bitbucket/betonline/";
-      path = "~/code/bitbucket/betonline/.gitconfig";
+      condition = "gitdir:~/code/bitbucket/foshtech/";
+      path = "~/code/bitbucket/foshtech/.gitconfig";
     }
     {
       condition = "gitdir:~/code/github/betanysports/";
