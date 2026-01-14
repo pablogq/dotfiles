@@ -58,6 +58,19 @@
   system.defaults.CustomUserPreferences = {
     "com.apple.symbolichotkeys" = {
       AppleSymbolicHotKeys = {
+        # Set "Move focus to next window" shortcut
+        "27" = {
+          enabled = true;
+          value = {
+            parameters = [
+              65535
+              48
+              1966080
+            ];
+            type = "standard";
+          };
+        };
+
         # Disable "Select the previous input source" shortcut
         "60" = {
           enable = false;

@@ -223,6 +223,10 @@
       path = "~/code/bitbucket/foshtech/.gitconfig";
     }
     {
+      condition = "gitdir:~/code/github/foshtech/";
+      path = "~/code/github/foshtech/.gitconfig";
+    }
+    {
       condition = "gitdir:~/code/github/betanysports/";
       path = "~/code/github/betanysports/.gitconfig";
     }

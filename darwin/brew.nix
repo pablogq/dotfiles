@@ -38,6 +38,7 @@
     "pkg-config"
     "pnpm"
     "sst/tap/opencode"
+    "uv"
     "yarn"
   ];
 }
