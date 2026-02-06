@@ -34,6 +34,7 @@
   # installing pnpm and yarn from nixpgks have an issue with hardcoded node versions
   # https://github.com/NixOS/nixpkgs/issues/145634
   homebrew.brews = [
+    "flyctl"
     "libpng"
     "pkg-config"
     "pnpm"
