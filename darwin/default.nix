@@ -31,9 +31,6 @@
 
   environment.shells = [ pkgs.fish ];
   environment.systemPackages = [ pkgs.nixfmt-rfc-style ];
-  environment.variables = {
-    EDITOR = "vim";
-  };
 
   programs.fish.enable = true;
   programs.nix-index.enable = true;

@@ -1,4 +1,5 @@
 {
+  config,
   osConfig,
   lib,
   pkgs,
@@ -25,6 +26,7 @@
     gh
     go
     httpstat
+    lazygit
     nil
     rover
     ripgrep
@@ -208,7 +210,16 @@
     set -g window-status-current-style "fg=#{@thm_peach},bold"
   '';
 
-  programs.vim.enable = true;
+  programs.neovim.enable = true;
+  programs.neovim.sideloadInitLua = true;
+  programs.neovim.defaultEditor = true;
+  programs.neovim.viAlias = true;
+  programs.neovim.vimAlias = true;
+  programs.neovim.withRuby = false;
+  programs.neovim.withPython3 = false;
+
+  xdg.configFile."nvim".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.nix/.config/nvim";
 
   programs.git.enable = true;
   programs.git.settings.user.name = "Pablo Guerrero";
