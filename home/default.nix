@@ -139,7 +139,7 @@
     font-size = 14;
     font-family = "VictorMono Nerd Font Mono";
     term = "xterm-256color";
-    theme = "catppuccin-frappe";
+    theme = "Catppuccin Frappe";
     window-padding-x = 10;
     window-padding-y = "2";
     macos-titlebar-style = "tabs";
