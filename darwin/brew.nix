@@ -15,8 +15,8 @@
     upgrade = true; # Upgrade outdated casks, formulae, and App Store apps
     cleanup = "zap"; # Uninstall all programs not declared
   };
-  homebrew.onActivation.extraFlags = [
-    "--force-cleanup"
+  homebrew.taps = [
+    "anomalyco/tap"
   ];
   homebrew.casks = [
     "1password"
@@ -40,7 +40,10 @@
   homebrew.brews = [
     "cloudflared"
     "pnpm"
-    "sst/tap/opencode"
+    {
+      name = "anomalyco/tap/opencode";
+      trusted = true;
+    }
     "yarn"
   ];
 }
