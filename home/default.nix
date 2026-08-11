@@ -17,6 +17,7 @@
     awscli2
     bat
     bun
+    btop
     curl
     doppler
     eza
@@ -25,7 +26,6 @@
     fzf
     gh
     go
-    httpstat
     lazygit
     nil
     rover

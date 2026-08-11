@@ -28,7 +28,6 @@
     "google-chrome"
     "mattermost"
     "mongodb-compass"
-    "ollama-app"
     "raycast"
     "redis-insight"
     "slack"
@@ -44,6 +43,7 @@
       name = "anomalyco/tap/opencode";
       trusted = true;
     }
+    "uv"
     "yarn"
   ];
 }
